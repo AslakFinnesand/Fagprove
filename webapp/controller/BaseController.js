@@ -63,6 +63,19 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/ui/core/UIComponent", "sap/ui/
 		 * It there is a history entry we go one step back in the browser history
 		 * If not, it will replace the current entry of the browser history with the main route.
 		 */
+
+		onPageNavBackButtonPress: function () {
+			let history, previousHash;
+
+			history = History.getInstance();
+			previousHash = history.getPreviousHash();
+
+			if (previousHash !== undefined) {
+				window.history.go(-1);
+			} else {
+				this.getRouter().navTo("appHome", {}, true /*no history*/);
+			}
+		},
 		onNavBack: function () {
 			const sPreviousHash = History.getInstance().getPreviousHash();
 			if (sPreviousHash !== undefined) {

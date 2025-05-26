@@ -1,19 +1,75 @@
 <mvc:View
-	controllerName="fagprove.controller.TeamCalendar"
-	displayBlock="true"
-	xmlns="sap.m"
-	xmlns:mvc="sap.ui.core.mvc"
-	xmlns:core="sap.ui.core"
-	core:require="{
+    controllerName="fagprove.controller.TeamCalendar"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns:unified="sap.ui.unified"
+    core:require="{
 		formatter: 'fagprove/model/formatter'
-	}">
+	}"
+>
+    <Page
+        title="{i18n>appTitleTeamCalendar}"
+        id="idTeamCalendarPage"
+        showNavButton="true"
+        navButtonPress=".onPageNavBackButtonPress"
+        class="sapUiResponsiveContentPadding"
+    >
+        <content>
+            <Panel
+                headerText="{path: '/userName', formatter: '.userNameCalendar'}"
+                class="sapUiResponsiveMargin"
+                width="auto"
+            >
+                <PlanningCalendar
+                    id="idPlanningCalendar"
+                    startDate="{path: 'calendarData>/startDate'}"
+                    rows="{path: 'calendarData>/people'}"
+                    appointmentsVisualization="Filled"
+                    appointmentSelect="onPlanningCalendarAppointmentSelect"
+                    appointmentHeight="Automatic"
+                    showEmptyIntervalHeaders="false"
+                    builtInViews="Week,Day,One Month,Month"
+                    viewKey="One Month"
+                    stickyHeader="true"
+                    showWeekNumbers="true"
+                    showDayNamesLine="true"
+                    legend="PCLegend"
+                >
+                    <toolbarContent>
+                        <ToolbarSpacer />
+                        <Button
+                            id="idShowLegendButton"
+                            icon="sap-icon://legend"
+                            text="Show Legend"
+                            press=".onShowLegendButtonPress"
+                        />
+                    </toolbarContent>
 
-	<Page
-		title="{i18n>appTitleTeamCalendar}"
-		id="idTeamCalendarPage">
-		<content>
-			
-		</content>
-	</Page>
-
+                    <rows>
+                        <PlanningCalendarRow
+                            icon="sap-icon://employee"
+                            title="{calendarData>name}"
+                            text="{calendarData>role}"
+                            appointments="{path: 'calendarData>appointments',templateShareable: false}"
+                        >
+                            <appointments>
+                                <unified:CalendarAppointment
+                                    startDate="{calendarData>start}"
+                                    endDate="{calendarData>end}"
+                                    icon="{calendarData>pic}"
+                                    title="{calendarData>title}"
+                                    text="{calendarData>info}"
+                                    type="{calendarData>type}"
+                                    tentative="{calendarData>tentative}"
+                                    color="{calendarData>color}"
+                                />
+                            </appointments>
+                        </PlanningCalendarRow>
+                    </rows>
+                </PlanningCalendar>
+            </Panel>
+        </content>
+    </Page>
 </mvc:View>

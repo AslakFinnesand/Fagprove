@@ -1,0 +1,59 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+>
+    <ResponsivePopover
+        id="detailsPopover"
+        title="{calendarData>title}"
+        class="sapUiContentPadding"
+        placement="Auto"
+    >
+        <f:SimpleForm
+            editable="false"
+            layout="ResponsiveGridLayout"
+            singleContainerFullSize="false"
+        >
+            <Label
+                text="{i18n>additionalInfo}"
+                labelFor="idMoreInfoText"
+            />
+            <Text
+                id="idMoreInfoText"
+                text="{calendarData>info}"
+            />
+            <Label
+                text="Status"
+                labelFor="idStatusInfoText"
+                visible="{
+                                                                        path: 'calendarData>status',
+                                                                        formatter: '.fragmentVisiblelStatusFormatter'
+                                                                    }"
+            />
+            <Text
+                id="idStatusInfoText"
+                text="{calendarData>status}"
+                visible="{
+                                                                            path: 'calendarData>status',
+                                                                            formatter: '.fragmentVisiblelStatusFormatter'
+                                                                            }"
+            />
+            <Label
+                text="{i18n>startDate}"
+                labelFor="idStartDateText"
+            />
+            <Text
+                id="idStartDateText"
+                text="{path: 'calendarData>start', formatter: '.formatDate'}"
+            />
+            <Label
+                text="{i18n>endDate}"
+                labelFor="idEndDateText"
+            />
+            <Text
+                id="idEndDateText"
+                text="{path: 'calendarData>end', formatter: '.formatDate'}"
+            />
+        </f:SimpleForm>
+    </ResponsivePopover>
+</core:FragmentDefinition>
