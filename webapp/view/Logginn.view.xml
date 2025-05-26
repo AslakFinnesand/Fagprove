@@ -1,0 +1,19 @@
+<mvc:View
+	controllerName="fagprove.controller.Logginn"
+	displayBlock="true"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+	core:require="{
+		formatter: 'fagprove/model/formatter'
+	}">
+
+	<Page
+		title="{i18n>appTitleLogginn}"
+		id="loggInnPage">
+		<content>
+			
+		</content>
+	</Page>
+
+</mvc:View>

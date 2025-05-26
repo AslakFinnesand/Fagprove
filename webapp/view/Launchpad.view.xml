@@ -1,0 +1,19 @@
+<mvc:View
+	controllerName="fagprove.controller.Launchpad"
+	displayBlock="true"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+	core:require="{
+		formatter: 'fagprove/model/formatter'
+	}">
+
+	<Page
+		title="{i18n>appTitleLaunchpad}"
+		id="launchpadPage">
+		<content>
+			
+		</content>
+	</Page>
+
+</mvc:View>

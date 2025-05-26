@@ -51,9 +51,10 @@
 					"bundleName": "fagprove.i18n.i18n",
 					"supportedLocales": [
 						"en",
-						"de"
+						"de",
+						"no"
 					],
-					"fallbackLocale": "en",
+					"fallbackLocale": "no",
 					"async": true
 				}
 			}

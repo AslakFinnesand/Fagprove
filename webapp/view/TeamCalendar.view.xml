@@ -1,0 +1,19 @@
+<mvc:View
+	controllerName="fagprove.controller.TeamCalendar"
+	displayBlock="true"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+	core:require="{
+		formatter: 'fagprove/model/formatter'
+	}">
+
+	<Page
+		title="{i18n>appTitleTeamCalendar}"
+		id="teamCalendarPage">
+		<content>
+			
+		</content>
+	</Page>
+
+</mvc:View>
