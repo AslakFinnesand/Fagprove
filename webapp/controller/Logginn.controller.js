@@ -1,12 +1,21 @@
 sap.ui.define([
 	"./BaseController",
-	"sap/m/MessageBox"
-], function (BaseController, MessageBox) {
+], function (BaseController) {
 	"use strict";
 
 	return BaseController.extend("fagprove.controller.Logginn", {
-		sayHello: function () {
-			MessageBox.show("Hello World!");
-		}
+
+		onLoggInnButtonPress: function () {
+
+			const rootModel = this.getView().getModel();
+			const logInName = rootModel.getProperty("/userName");
+			const pw = rootModel.getProperty("/password");
+			if (logInName == "test" && pw == "test") {
+				this.getRouter().navTo("lanuchpad");
+			}
+
+
+		},
+
 	});
 });

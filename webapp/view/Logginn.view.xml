@@ -1,19 +1,66 @@
 <mvc:View
-	controllerName="fagprove.controller.Logginn"
-	displayBlock="true"
-	xmlns="sap.m"
-	xmlns:mvc="sap.ui.core.mvc"
-	xmlns:core="sap.ui.core"
-	core:require="{
+    controllerName="fagprove.controller.Logginn"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:l="sap.ui.layout"
+    xmlns:core="sap.ui.core"
+    core:require="{
 		formatter: 'fagprove/model/formatter'
-	}">
+	}"
+>
+    <Page
+        title="{i18n>appTitleLogginn}"
+        id="idLoggInnPage"
+    >
+        <content>
+            <FlexBox
+                width="100%"
+                height="100%"
+                alignItems="Center"
+                justifyContent="Center"
+            >
+                <Panel width="25rem">
+                    <l:VerticalLayout
+                        id="idLoginnVerticalLayout"
+                        width="100%"
+                        class="sapUiContentPadding"
+                    >
+                        <Label
+                            text="{i18n>userName}"
+                            required="true"
+                            textAlign="Begin"
+                            width="100%"
+                        />
+                        <Input
+                            id="idUserNameInput"
+                            required="true"
+                            value="{/userName}"
+                        />
+                        <Label
+                            text="{i18n>password}"
+                            required="true"
+                            textAlign="Begin"
+                            width="100%"
+                            class="sapUiTinyMarginTop"
+                        />
+                        <Input
+                            id="idPasswordLoginInput"
+                            required="true"
+                            type="Password"
+                            value="{/password}"
+                        />
 
-	<Page
-		title="{i18n>appTitleLogginn}"
-		id="loggInnPage">
-		<content>
-			
-		</content>
-	</Page>
-
+                        <Button
+                            id="idLoggInnButton"
+                            text="{i18n>logInBtn}"
+                            press=".onLoggInnButtonPress"
+                            width="100%"
+                            class="sapUiSmallMarginTop"
+                        />
+                    </l:VerticalLayout>
+                </Panel>
+            </FlexBox>
+        </content>
+    </Page>
 </mvc:View>

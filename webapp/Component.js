@@ -1,4 +1,8 @@
-sap.ui.define(["sap/ui/core/UIComponent", "sap/ui/Device", "./model/models"], function (UIComponent, Device, models) {
+sap.ui.define([
+	"sap/ui/core/UIComponent",
+	"sap/ui/Device",
+	"./model/models"
+], function (UIComponent, Device, models) {
 	"use strict";
 
 	return UIComponent.extend("fagprove.Component", {
@@ -13,8 +17,13 @@ sap.ui.define(["sap/ui/core/UIComponent", "sap/ui/Device", "./model/models"], fu
 			// create the device model
 			this.setModel(models.createDeviceModel(), "device");
 
-			// create the views based on the url/hash
-			this.getRouter().initialize();
+			const oRouter = this.getRouter();
+            oRouter.initialize();
+            this.getRouter().initialize();
+
+            // Redirect to home route upon reload
+			oRouter.navTo("logginn", {}, true /* no history */);
+			
 		},
 		/**
 		 * This method can be called to determine whether the sapUiSizeCompact or sapUiSizeCozy

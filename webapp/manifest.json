@@ -45,6 +45,10 @@
 		},
 
 		"models": {
+			"": {
+				"type": "sap.ui.model.json.JSONModel",
+				"uri": "./model/data.json"
+			},
 			"i18n": {
 				"type": "sap.ui.model.resource.ResourceModel",
 				"settings": {
@@ -71,14 +75,32 @@
 			"routes": [
 				{
 					"pattern": "",
-					"name": "main",
-					"target": "main"
+					"name": "logginn",
+					"target": "logginn"
+				},
+				{
+					"pattern": "Launchpad",
+					"name": "lanuchpad",
+					"target": "Launchpad"
+				},
+				{
+					"pattern": "TeamCalendar",
+					"name": "teamcalendar",
+					"target": "TeamCalendar"
 				}
 			],
 			"targets": {
-				"main": {
-					"viewId": "main",
-					"viewName": "Main"
+				"logginn": {
+					"viewId": "logginn",
+					"viewName": "Logginn"
+					},
+				"Launchpad": {
+					"viewId": "lanuchpad",
+					"viewName": "Launchpad"
+				},
+				"TeamCalendar": {
+					"viewId": "teamcalendar",
+					"viewName": "TeamCalendar"
 				}
 			}
 		}
