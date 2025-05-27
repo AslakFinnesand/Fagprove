@@ -1,0 +1,13 @@
+ID,date,text,type
+df59d6a4-f29c-4190-a710-fece5c3f259d,2025-01-01T00:00:00.000Z,Nyttårsdag,Type04
+9f23bf21-928e-4dd8-acb8-b722b89f8e3e,2025-04-17T00:00:00.000Z,Skjærtorsdag,Type04
+d1c57021-f152-4503-b531-dfdb22aed145,2025-04-18T00:00:00.000Z,Langfredag,Type04
+0d58d5ad-91a4-4748-89eb-9eb7433ad8d8,2025-04-20T00:00:00.000Z,Første påskedag,Type04
+7453f9fe-280f-44a1-acba-1ce74e66e071,2025-04-21T00:00:00.000Z,Andre påskedag,Type04
+8340ab88-e642-4c86-b1a0-4cfe2deaf3d6,2025-05-01T00:00:00.000Z,Arbeidernes dag,Type04
+e2cbafe1-c7af-44af-aa2f-6555508884c0,2025-05-17T00:00:00.000Z,Grunnlovsdag,Type04
+bbab8296-b8bd-46a2-9bb0-9634ef5193ec,2025-05-29T00:00:00.000Z,Kristi himmelfartsdag,Type04
+b3c1603c-84b6-4d4d-ac14-07c748cd1d28,2025-06-08T00:00:00.000Z,Første pinsedag,Type04
+e2738f8f-4cdf-4a3d-b52a-61a6c1231eca,2025-06-09T00:00:00.000Z,Andre pinsedag,Type04
+64d766c2-f295-4d7b-90b7-6f5287cc2504,2025-12-25T00:00:00.000Z,Første juledag,Type04
+712e973a-3bc5-44f1-ae56-a82822136003,2025-12-26T00:00:00.000Z,Andre juledag,Type04

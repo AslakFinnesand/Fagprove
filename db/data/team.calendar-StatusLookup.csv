@@ -1,0 +1,19 @@
+ID,Text
+32c2fa35-b305-46ae-ae71-3cc72f79c9a7,Godkjent
+aa005d1d-1585-4463-b432-a9cd5692e0b1,Sendt til behandling
+cb176e81-3a9a-4416-9af6-f57f1fae7fa0,Avslått
+ac087ce2-ec69-4c6b-9602-20f28c8a1cde,Ikke behandlet
+a0126d4c-1755-4ba0-bceb-4c3fc0eaa5b0,Returnert til søker
+71d343e5-fbb8-4e14-9ee0-63059933e193,I prosess
+3e2c82ee-607d-4170-a7bb-2f06fa7cf963,Ikke sendt inn
+d7d0a7ae-ea99-4f9b-94ea-fc7f2de73c00,Ferdig behandlet
+8c96fded-bc4d-4a9e-802b-f20b1aef5a79,Gjennomført
+346679a5-93d7-4b0a-a553-d5438d6a2d86,Manuell vurdering pågår
+cc06dafe-9c35-4c8e-a6a7-489a84a73c9b,Avventer godkjenning
+1c4a8ab3-cd34-4b1c-b775-bdf9c841a679,Ingen status tilgjengelig
+9f6703f1-7160-466e-86a2-7a083a34778e,Venter på oppfølging
+d4f1d279-517b-4bd8-a597-620e7cc18df4,Fullført
+b17a12bb-3c27-4f0c-bde1-0f3e0f65a2ab,Ikke vurdert
+5a4a4243-13fa-4b5c-8e50-52d9ed89ac25,Under vurdering
+f36f731e-703e-471c-986a-6c8e5b5f4e91,Under behandling
+0739ff89-8ed1-4aa9-a3e2-cd5b9b4f6ec8,Klar for godkjenning
