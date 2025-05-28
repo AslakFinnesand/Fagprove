@@ -17,10 +17,27 @@
   "scripts": {
     "start": "cds-serve"
   },
-  "cds": {
+"cds": {
     "requires": {
       "db": {
         "kind": "sqlite"
+      },
+      "auth": {
+        "kind": "mocked",
+        "users": {
+          "Alice": {
+            "password": "ali123",
+            "roles": [
+              "admin"
+            ]
+          },
+          "Jon": {
+            "password": "jon123",
+            "roles": [
+              "admin"
+            ]
+          }
+        }
       }
     }
   }
