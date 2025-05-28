@@ -149,17 +149,16 @@ entity _AllAppointmentsView       as
             D.color          as color,
             D.icon           as pic,
             D.eventType      as eventType
-        };
+        }    where
+        D.Deputy_ID is not null;
 
 
-
-// Et view for People som inkluderer de samlede avtalene via komposisjon
 entity PeopleWithAppointmentsView as
     select from schema.People as P {
         key P.ID,
             P.name,
             P.leader_ID, 
-            appointments : Composition of many _AllAppointmentsView
+            appointments : Association to many _AllAppointmentsView
                                on appointments.person_ID = $self.ID
         };
 
