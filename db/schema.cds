@@ -14,7 +14,7 @@ entity People {
       decorativeType_ID : UUID;
 }
 
-entity Travels {
+entity Travel {
   key ID                : UUID;
       start             : DateTime;
       end               : DateTime;
@@ -27,7 +27,7 @@ entity Travels {
 }
 
 
-entity Absences {
+entity Absence {
   key ID                : UUID;
       start             : DateTime;
       end               : DateTime;
@@ -41,10 +41,11 @@ entity Absences {
 
 
 entity Deputy {
-  key person_ID : UUID;
-      deputy_ID : UUID;
-      start     : DateTime;
-      end       : DateTime;
+  key person_ID         : UUID;
+      deputy_ID         : UUID;
+      start             : DateTime;
+      end               : DateTime;
+      decorativeType_ID : UUID;
 }
 
 
