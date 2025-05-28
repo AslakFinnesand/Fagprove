@@ -16,7 +16,7 @@ service CalendarService @(
     entity LegendAppointmentItems as projection on my.LegendAppointmentItems;
 
 
-    function GetEmploeyAppointments(leader_ID : String, year : Integer) returns PeopleWithAppointments;
+    function GetEmploeyAppointments(leader_ID : String, year : Integer) returns array of PeopleWithAppointments;
 
 
 }

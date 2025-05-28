@@ -35,6 +35,7 @@
 		"karma-ui5": "^4.0.1",
 		"rimraf": "^6.0.1",
 		"ui5-middleware-livereload": "^3.0.3",
+		"ui5-middleware-simpleproxy": "^3.3.0",
 		"wdio-ui5-service": "^2.1.1"
 	}
 }

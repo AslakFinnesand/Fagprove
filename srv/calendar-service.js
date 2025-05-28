@@ -17,6 +17,7 @@ module.exports = cds.service.impl(async function () {
             .columns(p => {
                 p('*'),
                     p.appointments(app => {
+                        app.ID,
                         app.start,
                             app.end,
                             app.title,
@@ -34,7 +35,7 @@ module.exports = cds.service.impl(async function () {
         const legendAppointmentItemsData = await SELECT.from(LegendAppointmentItems);
 
         const result = {
-            startDate: new Date(Date.UTC(year, 0, 1)),
+            startDate: new Date().toISOString(),
             people: peopleUnderLeader,
             legendItems: legendItemsData,
             legendAppointmentItems: legendAppointmentItemsData

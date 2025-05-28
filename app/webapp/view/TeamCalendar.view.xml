@@ -45,8 +45,18 @@
                             text="Show Legend"
                             press=".onShowLegendButtonPress"
                         />
+                        <Title
+                            text="Title"
+                            titleStyle="H4"
+                        />
+                        <Button
+                            id="idCreateDeputyButton"
+                            icon="sap-icon://add"
+                            press="handleAppointmentCreate"
+                            tooltip="Add"
+                        />
                     </toolbarContent>
-
+                    <toolbarContent />
                     <rows>
                         <PlanningCalendarRow
                             icon="sap-icon://employee"

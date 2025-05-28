@@ -1,7 +1,11 @@
-sap.ui.define(["sap/ui/core/mvc/Controller", "sap/ui/core/UIComponent", "sap/ui/core/routing/History"], function (Controller, UIComponent, History) {
+sap.ui.define([
+	"sap/ui/core/mvc/Controller",
+	"sap/ui/core/UIComponent",
+	"sap/ui/core/routing/History"
+], function (Controller, UIComponent, History) {
 	"use strict";
 
-	return Controller.extend("fagprove.controller.BaseController", {
+	return Controller.extend("test.fagprove.controller.BaseController", {
 		/**
 		 * Convenience method for accessing the component of the controller's view.
 		 * @returns {sap.ui.core.Component} The component of the controller's view
@@ -76,6 +80,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/ui/core/UIComponent", "sap/ui/
 				this.getRouter().navTo("appHome", {}, true /*no history*/);
 			}
 		},
+
 		onNavBack: function () {
 			const sPreviousHash = History.getInstance().getPreviousHash();
 			if (sPreviousHash !== undefined) {

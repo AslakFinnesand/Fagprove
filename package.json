@@ -15,9 +15,10 @@
     "@sap/cds-dk": "^8"
   },
   "scripts": {
-    "start": "cds-serve"
+    "start": "cds-serve",
+    "w": " cds deploy && cds watch --port 4008"
   },
-"cds": {
+  "cds": {
     "requires": {
       "db": {
         "kind": "sqlite"
@@ -25,13 +26,13 @@
       "auth": {
         "kind": "mocked",
         "users": {
-          "Alice": {
+          "3-ALI": {
             "password": "ali123",
             "roles": [
               "admin"
             ]
           },
-          "Jon": {
+          "3-JON": {
             "password": "jon123",
             "roles": [
               "admin"

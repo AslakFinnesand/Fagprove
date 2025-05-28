@@ -1,0 +1,611 @@
+{
+    "startDate": "2025-05-28T10:43:22.668Z",
+    "people": [
+        {
+            "ID": "9g8f7e6d-3456-7890-cdef-012345678901",
+            "name": "Magnus Andersen",
+            "leader_ID": "3-JON",
+            "appointments": [
+                {
+                    "start": "2025-01-15T07:30:00.000Z",
+                    "end": "2025-01-15T07:30:00.000Z",
+                    "title": "Bursdag",
+                    "info": "Gratulerer med dagen Magnus Andersen",
+                    "type": null,
+                    "status": null,
+                    "color": "#6395ee",
+                    "pic": "sap-icon://Netweaver-business-client",
+                    "eventType": "birthday"
+                },
+                {
+                    "start": "2025-03-15T07:30:00.000Z",
+                    "end": "2025-03-18T08:30:00.000Z",
+                    "title": "Kortvarig sykefravær",
+                    "info": "Trenger noen dager for å bli frisk",
+                    "type": "Type02",
+                    "status": "****",
+                    "color": "#adebb3",
+                    "pic": "sap-icon://travel-itinerary",
+                    "eventType": "absence"
+                },
+                {
+                    "start": "2025-05-06T07:30:00.000Z",
+                    "end": "2025-08-15T08:30:00.000Z",
+                    "title": "Utforskningsreise til ny destinasjon",
+                    "info": "Gjennomfører en langvarig utforskning og observasjon",
+                    "type": "Type02",
+                    "status": "Avventer godkjenning",
+                    "color": "#FFB343",
+                    "pic": "sap-icon://heatmap-chart",
+                    "eventType": "travel"
+                },
+                {
+                    "start": "2025-08-15T09:00:00.000Z",
+                    "end": "2025-12-20T11:00:00.000Z",
+                    "title": "Opphold på forskningsstasjon",
+                    "info": "Utvidet opphold for å løse uforutsette utfordringer",
+                    "type": "Type01",
+                    "status": "Ingen status tilgjengelig",
+                    "color": "#FFB343",
+                    "pic": "sap-icon://heatmap-chart",
+                    "eventType": "travel"
+                }
+            ]
+        },
+        {
+            "ID": "ef5e67d6-3e08-42ab-a5ed-274d6b9afc81",
+            "name": "Ingrid Pettersen",
+            "leader_ID": "3-JON",
+            "appointments": [
+                {
+                    "start": "2025-01-15T07:30:00.000Z",
+                    "end": "2025-01-15T07:30:00.000Z",
+                    "title": "Bursdag",
+                    "info": "Gratulerer med dagen Ingrid Pettersen",
+                    "type": null,
+                    "status": null,
+                    "color": "#6395ee",
+                    "pic": "sap-icon://Netweaver-business-client",
+                    "eventType": "birthday"
+                },
+                {
+                    "start": "2025-04-11T07:30:00.000Z",
+                    "end": "2025-04-14T08:30:00.000Z",
+                    "title": "Sykemelding",
+                    "info": "Føler meg dårlig og trenger tid til å komme meg",
+                    "type": "Type02",
+                    "status": "****",
+                    "color": "#adebb3",
+                    "pic": "sap-icon://travel-itinerary",
+                    "eventType": "absence"
+                },
+                {
+                    "start": "2025-11-01T07:30:00.000Z",
+                    "end": "2025-11-03T08:30:00.000Z",
+                    "title": "Tjenestereise til USA",
+                    "info": "Reiser for å delta i et offisielt oppdrag i utlandet",
+                    "type": "Type02",
+                    "status": "Venter på oppfølging",
+                    "color": "#FFB343",
+                    "pic": "sap-icon://heatmap-chart",
+                    "eventType": "travel"
+                },
+                {
+                    "start": "2025-11-08T09:00:00.000Z",
+                    "end": "2025-11-11T11:00:00.000Z",
+                    "title": "Hjemreise fra utenlandsoppdrag",
+                    "info": "Avslutter en internasjonal reise og returnerer",
+                    "type": "Type01",
+                    "status": "Fullført",
+                    "color": "#FFB343",
+                    "pic": "sap-icon://heatmap-chart",
+                    "eventType": "travel"
+                }
+            ]
+        },
+        {
+            "ID": "0e8739aa-c7e2-4ff8-b301-f8319a3d98d3",
+            "name": "Per Hansen",
+            "leader_ID": "3-JON",
+            "appointments": [
+                {
+                    "start": "2025-01-04T15:09:45.000Z",
+                    "end": "2025-01-04T15:09:45.000Z",
+                    "title": "Arbeidsreise til Oslo",
+                    "info": "Deltar på et viktig møte i hovedstaden",
+                    "type": "Type02",
+                    "status": "Ikke vurdert",
+                    "color": "#FFB343",
+                    "pic": "sap-icon://heatmap-chart",
+                    "eventType": "travel"
+                },
+                {
+                    "start": "2025-01-06T15:09:45.000Z",
+                    "end": "2025-01-06T15:09:45.000Z",
+                    "title": "Retur fra møte i Oslo",
+                    "info": "Avslutter et møte og reiser tilbake til utgangspunktet",
+                    "type": "Type01",
+                    "status": "Sendt til behandling",
+                    "color": "#FFB343",
+                    "pic": "sap-icon://heatmap-chart",
+                    "eventType": "travel"
+                },
+                {
+                    "start": "2025-01-15T07:30:00.000Z",
+                    "end": "2025-01-15T07:30:00.000Z",
+                    "title": "Bursdag",
+                    "info": "Gratulerer med dagen Per Hansen",
+                    "type": null,
+                    "status": null,
+                    "color": "#6395ee",
+                    "pic": "sap-icon://Netweaver-business-client",
+                    "eventType": "birthday"
+                },
+                {
+                    "start": "2025-12-05T07:30:00.000Z",
+                    "end": "2025-12-20T08:30:00.000Z",
+                    "title": "Ferie",
+                    "info": "Værforholdene gjør det umulig å møte på jobb",
+                    "type": "Type02",
+                    "status": "Returnert til søker",
+                    "color": "#adebb3",
+                    "pic": "sap-icon://travel-itinerary",
+                    "eventType": "absence"
+                }
+            ]
+        },
+        {
+            "ID": "832ab8c7-e7aa-437a-bf24-811999ff3b28",
+            "name": "Kari Larsen",
+            "leader_ID": "3-JON",
+            "appointments": [
+                {
+                    "start": "2025-01-04T15:09:45.000Z",
+                    "end": "2025-01-04T15:09:45.000Z",
+                    "title": "Arbeidsreise til Oslo",
+                    "info": "Deltar på et viktig møte i hovedstaden",
+                    "type": "Type02",
+                    "status": "Under vurdering",
+                    "color": "#FFB343",
+                    "pic": "sap-icon://heatmap-chart",
+                    "eventType": "travel"
+                },
+                {
+                    "start": "2025-01-06T15:09:45.000Z",
+                    "end": "2025-01-06T15:09:45.000Z",
+                    "title": "Retur fra møte i Oslo",
+                    "info": "Avslutter et møte og reiser tilbake til utgangspunktet",
+                    "type": "Type01",
+                    "status": "Under behandling",
+                    "color": "#FFB343",
+                    "pic": "sap-icon://heatmap-chart",
+                    "eventType": "travel"
+                },
+                {
+                    "start": "2025-01-15T07:30:00.000Z",
+                    "end": "2025-01-15T07:30:00.000Z",
+                    "title": "Bursdag",
+                    "info": "Gratulerer med dagen Kari Larsen",
+                    "type": null,
+                    "status": null,
+                    "color": "#6395ee",
+                    "pic": "sap-icon://Netweaver-business-client",
+                    "eventType": "birthday"
+                },
+                {
+                    "start": "2025-07-01T07:30:00.000Z",
+                    "end": "2025-07-16T08:30:00.000Z",
+                    "title": "Kortvarig sykefravær",
+                    "info": "Har pådratt meg en skade som krever hvile og behandling",
+                    "type": "Type02",
+                    "status": "****",
+                    "color": "#adebb3",
+                    "pic": "sap-icon://travel-itinerary",
+                    "eventType": "absence"
+                }
+            ]
+        },
+        {
+            "ID": "a75943c2-fd4c-4929-b09a-17f0a76a81be",
+            "name": "Morten Kristiansen",
+            "leader_ID": "3-JON",
+            "appointments": [
+                {
+                    "start": "2025-01-04T15:09:45.000Z",
+                    "end": "2025-01-04T15:09:45.000Z",
+                    "title": "Arbeidsreise til Oslo",
+                    "info": "Deltar på et viktig møte i hovedstaden",
+                    "type": "Type02",
+                    "status": "Klar for godkjenning",
+                    "color": "#FFB343",
+                    "pic": "sap-icon://heatmap-chart",
+                    "eventType": "travel"
+                },
+                {
+                    "start": "2025-01-06T15:09:45.000Z",
+                    "end": "2025-01-06T15:09:45.000Z",
+                    "title": "Retur fra møte i Oslo",
+                    "info": "Avslutter et møte og reiser tilbake til utgangspunktet",
+                    "type": "Type01",
+                    "status": "Klar for godkjenning",
+                    "color": "#FFB343",
+                    "pic": "sap-icon://heatmap-chart",
+                    "eventType": "travel"
+                },
+                {
+                    "start": "2025-01-15T07:30:00.000Z",
+                    "end": "2025-01-15T07:30:00.000Z",
+                    "title": "Bursdag",
+                    "info": "Gratulerer med dagen Morten Kristiansen",
+                    "type": null,
+                    "status": null,
+                    "color": "#6395ee",
+                    "pic": "sap-icon://Netweaver-business-client",
+                    "eventType": "birthday"
+                },
+                {
+                    "start": "2025-05-15T07:30:00.000Z",
+                    "end": "2025-05-18T08:30:00.000Z",
+                    "title": "Per Hansen er stedfortreder for Morten Kristiansen",
+                    "info": "Morten Kristiansen har Per Hansen som en stedfortreder dene perioden",
+                    "type": null,
+                    "status": "Satt av leder",
+                    "color": "#e3cb88",
+                    "pic": "sap-icon://journey-depart",
+                    "eventType": "deputy"
+                },
+                {
+                    "start": "2025-08-17T07:30:00.000Z",
+                    "end": "2025-08-20T08:30:00.000Z",
+                    "title": "Ferie",
+                    "info": "Ønsker å bruke noen dager til å delta i en inspirerende aktivitet",
+                    "type": "Type02",
+                    "status": "Ikke sendt inn",
+                    "color": "#adebb3",
+                    "pic": "sap-icon://travel-itinerary",
+                    "eventType": "absence"
+                }
+            ]
+        }
+    ],
+    "legendItems": [
+        {
+            "text": "Travel",
+            "color": "#FFB343"
+        },
+        {
+            "text": "Birthday",
+            "color": "#6395ee"
+        },
+        {
+            "text": "Absence",
+            "color": "#adebb3"
+        },
+        {
+            "text": "Appointments",
+            "color": "#39998e"
+        }
+    ],
+    "legendAppointmentItems": [
+        {
+            "text": "Travel",
+            "color": "#FFB343"
+        },
+        {
+            "text": "Birthday",
+            "color": "#6395ee"
+        },
+        {
+            "text": "Absence",
+            "color": "#adebb3"
+        }
+    ]
+}
+
+{
+    "startDate": "2025-05-28T10:44:49.000Z",
+    "people": [
+        {
+            "ID": "9g8f7e6d-3456-7890-cdef-012345678901",
+            "name": "Magnus Andersen",
+            "role": "team member",
+            "appointments": [
+                {
+                    "ID": "91fb8fb3-3a0d-4163-9f52-09337dcfb60d",
+                    "start": "2025-03-15T07:30:00.000Z",
+                    "end": "2025-03-18T08:30:00.000Z",
+                    "title": "Kortvarig sykefravær",
+                    "info": "Trenger noen dager for å bli frisk",
+                    "type": "Type02",
+                    "status": "Avslått",
+                    "pic": "sap-icon://travel-itinerary",
+                    "color": "#adebb3",
+                    "eventType": "absence"
+                },
+                {
+                    "ID": "91fb8fb3-3a0d-4163-9f52-09337dcfb60d",
+                    "start": "2025-05-06T07:30:00.000Z",
+                    "end": "2025-08-15T08:30:00.000Z",
+                    "title": "Utforskningsreise til ny destinasjon",
+                    "info": "Gjennomfører en langvarig utforskning og observasjon",
+                    "type": "Type02",
+                    "status": "Avventer godkjenning",
+                    "color": "#FFB343",
+                    "pic": "sap-icon://heatmap-chart",
+                    "eventType": "travel"
+                },
+                {
+                    "ID": "91fb8fb3-3a0d-4163-9f52-09337dcfb60d",
+                    "start": "2025-08-03T18:48:59.000Z",
+                    "end": "2025-08-03T18:48:59.000Z",
+                    "title": "Gratulerer Magnus Andersen",
+                    "info": "Bursdag!!",
+                    "type": "Type02",
+                    "color": "#6395ee",
+                    "pic": "sap-icon://Netweaver-business-client",
+                    "eventType": "birthday"
+                },
+                {
+                    "ID": "b4b00541-874b-4e0f-a75e-cb656b0a484e",
+                    "start": "2025-08-15T09:00:00.000Z",
+                    "end": "2025-12-20T11:00:00.000Z",
+                    "title": "Opphold på forskningsstasjon",
+                    "info": "Utvidet opphold for å løse uforutsette utfordringer",
+                    "type": "Type01",
+                    "status": "Ingen status tilgjengelig",
+                    "color": "#FFB343",
+                    "pic": "sap-icon://heatmap-chart",
+                    "eventType": "travel"
+                }
+            ]
+        },
+        {
+            "ID": "ef5e67d6-3e08-42ab-a5ed-274d6b9afc81",
+            "name": "Ingrid Pettersen",
+            "role": "team member",
+            "appointments": [
+                {
+                    "ID": "a9413716-1385-4732-9c5f-366a93db0f40",
+                    "start": "2025-04-11T07:30:00.000Z",
+                    "end": "2025-04-14T08:30:00.000Z",
+                    "title": "Helsemessig fravær",
+                    "info": "Føler meg dårlig og trenger tid til å komme meg",
+                    "type": "Type02",
+                    "status": "Ikke behandlet",
+                    "pic": "sap-icon://travel-itinerary",
+                    "color": "#adebb3",
+                    "eventType": "absence"
+                },
+                {
+                    "ID": "a9413716-1385-4732-9c5f-366a93db0f40",
+                    "start": "2025-11-01T07:30:00.000Z",
+                    "end": "2025-11-03T08:30:00.000Z",
+                    "title": "Tjenestereise til USA",
+                    "info": "Reiser for å delta i et offisielt oppdrag i utlandet",
+                    "type": "Type02",
+                    "status": "Venter på oppfølging",
+                    "color": "#FFB343",
+                    "pic": "sap-icon://heatmap-chart",
+                    "eventType": "travel"
+                },
+                {
+                    "ID": "4ecf0363-41e6-4c36-aea3-60ad6fbb2990",
+                    "start": "2025-11-08T09:00:00.000Z",
+                    "end": "2025-11-11T11:00:00.000Z",
+                    "title": "Hjemreise fra utenlandsoppdrag",
+                    "info": "Avslutter en internasjonal reise og returnerer",
+                    "type": "Type01",
+                    "status": "Fullført",
+                    "color": "#FFB343",
+                    "pic": "sap-icon://heatmap-chart",
+                    "eventType": "travel"
+                },
+                {
+                    "ID": "a9413716-1385-4732-9c5f-366a93db0f40",
+                    "start": "2025-11-09T11:00:23.000Z",
+                    "end": "2025-11-09T11:00:23.000Z",
+                    "title": "Gratulerer Ingrid Pettersen",
+                    "info": "Bursdag!!",
+                    "type": "Type02",
+                    "color": "#6395ee",
+                    "pic": "sap-icon://Netweaver-business-client",
+                    "eventType": "birthday"
+                }
+            ]
+        },
+        {
+            "ID": "0e8739aa-c7e2-4ff8-b301-f8319a3d98d3",
+            "name": "Per Hansen",
+            "role": "team member",
+            "appointments": [
+                {
+                    "ID": "c811bb4e-5db7-45f2-8238-0961e25f0de8",
+                    "start": "2025-01-04T15:09:45.000Z",
+                    "end": "2025-01-04T15:09:45.000Z",
+                    "title": "Arbeidsreise til Oslo",
+                    "info": "Deltar på et viktig møte i hovedstaden",
+                    "type": "Type02",
+                    "status": "Ikke vurdert",
+                    "color": "#FFB343",
+                    "pic": "sap-icon://heatmap-chart",
+                    "eventType": "travel"
+                },
+                {
+                    "ID": "e1ea6be1-780f-416e-97d0-c64a1a952eaf",
+                    "start": "2025-01-06T15:09:45.000Z",
+                    "end": "2025-01-06T15:09:45.000Z",
+                    "title": "Retur fra møte i Oslo",
+                    "info": "Avslutter et møte og reiser tilbake til utgangspunktet",
+                    "type": "Type01",
+                    "status": "Sendt til behandling",
+                    "color": "#FFB343",
+                    "pic": "sap-icon://heatmap-chart",
+                    "eventType": "travel"
+                },
+                {
+                    "ID": "c811bb4e-5db7-45f2-8238-0961e25f0de8",
+                    "start": "2025-10-06T16:11:23.000Z",
+                    "end": "2025-10-06T16:11:23.000Z",
+                    "title": "Gratulerer Per Hansen",
+                    "info": "Bursdag!!",
+                    "type": "Type02",
+                    "color": "#6395ee",
+                    "pic": "sap-icon://Netweaver-business-client",
+                    "eventType": "birthday"
+                },
+                {
+                    "ID": "c811bb4e-5db7-45f2-8238-0961e25f0de8",
+                    "start": "2025-12-05T07:30:00.000Z",
+                    "end": "2025-12-20T08:30:00.000Z",
+                    "title": "Ekstraordinær situasjon",
+                    "info": "Værforholdene gjør det umulig å møte på jobb",
+                    "type": "Type02",
+                    "status": "Returnert til søker",
+                    "pic": "sap-icon://travel-itinerary",
+                    "color": "#adebb3",
+                    "eventType": "absence"
+                }
+            ]
+        },
+        {
+            "ID": "832ab8c7-e7aa-437a-bf24-811999ff3b28",
+            "name": "Kari Larsen",
+            "role": "team member",
+            "appointments": [
+                {
+                    "ID": "a78179ea-ab2b-4e6a-a032-97cc32b10728",
+                    "start": "2025-01-04T15:09:45.000Z",
+                    "end": "2025-01-04T15:09:45.000Z",
+                    "title": "Arbeidsreise til Oslo",
+                    "info": "Deltar på et viktig møte i hovedstaden",
+                    "type": "Type02",
+                    "status": "Under vurdering",
+                    "color": "#FFB343",
+                    "pic": "sap-icon://heatmap-chart",
+                    "eventType": "travel"
+                },
+                {
+                    "ID": "3a4a7280-c82c-445a-96b5-a13a904d1578",
+                    "start": "2025-01-06T15:09:45.000Z",
+                    "end": "2025-01-06T15:09:45.000Z",
+                    "title": "Retur fra møte i Oslo",
+                    "info": "Avslutter et møte og reiser tilbake til utgangspunktet",
+                    "type": "Type01",
+                    "status": "Under behandling",
+                    "color": "#FFB343",
+                    "pic": "sap-icon://heatmap-chart",
+                    "eventType": "travel"
+                },
+                {
+                    "ID": "a78179ea-ab2b-4e6a-a032-97cc32b10728",
+                    "start": "2025-07-01T07:30:00.000Z",
+                    "end": "2025-07-16T08:30:00.000Z",
+                    "title": "Skadefravær",
+                    "info": "Har pådratt meg en skade som krever hvile og behandling",
+                    "type": "Type02",
+                    "status": "I prosess",
+                    "pic": "sap-icon://travel-itinerary",
+                    "color": "#adebb3",
+                    "eventType": "absence"
+                },
+                {
+                    "ID": "a78179ea-ab2b-4e6a-a032-97cc32b10728",
+                    "start": "2025-12-09T10:48:47.000Z",
+                    "end": "2025-12-09T10:48:47.000Z",
+                    "title": "Gratulerer Kari Larsen",
+                    "info": "Bursdag!!",
+                    "type": "Type02",
+                    "color": "#6395ee",
+                    "pic": "sap-icon://Netweaver-business-client",
+                    "eventType": "birthday"
+                }
+            ]
+        },
+        {
+            "ID": "a75943c2-fd4c-4929-b09a-17f0a76a81be",
+            "name": "Morten Kristiansen",
+            "role": "team member",
+            "appointments": [
+                {
+                    "ID": "235f1270-c0d8-4b89-be31-a6ad8dd2b672",
+                    "start": "2025-01-04T15:09:45.000Z",
+                    "end": "2025-01-04T15:09:45.000Z",
+                    "title": "Arbeidsreise til Oslo",
+                    "info": "Deltar på et viktig møte i hovedstaden",
+                    "type": "Type02",
+                    "status": "Klar for godkjenning",
+                    "color": "#FFB343",
+                    "pic": "sap-icon://heatmap-chart",
+                    "eventType": "travel"
+                },
+                {
+                    "ID": "2bad075c-245e-4ff0-8d1c-7053e6a9c338",
+                    "start": "2025-01-06T15:09:45.000Z",
+                    "end": "2025-01-06T15:09:45.000Z",
+                    "title": "Retur fra møte i Oslo",
+                    "info": "Avslutter et møte og reiser tilbake til utgangspunktet",
+                    "type": "Type01",
+                    "status": "Klar for godkjenning",
+                    "color": "#FFB343",
+                    "pic": "sap-icon://heatmap-chart",
+                    "eventType": "travel"
+                },
+                {
+                    "ID": "235f1270-c0d8-4b89-be31-a6ad8dd2b672",
+                    "start": "2025-02-06T09:00:00.000Z",
+                    "end": "2025-02-06T13:34:51.000Z",
+                    "title": "Gratulerer Morten Kristiansen",
+                    "info": "Bursdag!!",
+                    "type": "Type02",
+                    "color": "#6395ee",
+                    "pic": "sap-icon://Netweaver-business-client",
+                    "eventType": "birthday"
+                },
+                {
+                    "ID": "235f1270-c0d8-4b89-be31-a6ad8dd2b672",
+                    "start": "2025-08-17T07:30:00.000Z",
+                    "end": "2025-08-20T08:30:00.000Z",
+                    "title": "Fri for personlig utvikling",
+                    "info": "Ønsker å bruke noen dager til å delta i en inspirerende aktivitet",
+                    "type": "Type02",
+                    "status": "Ikke sendt inn",
+                    "pic": "sap-icon://travel-itinerary",
+                    "color": "#adebb3",
+                    "eventType": "absence"
+                }
+            ]
+        }
+    ],
+    "legendItems": [
+        {
+            "text": "Travel",
+            "color": "#FFB343"
+        },
+        {
+            "text": "Birthday",
+            "color": "#6395ee"
+        },
+        {
+            "text": "Absence",
+            "color": "#adebb3"
+        },
+        {
+            "text": "Appointments",
+            "color": "#39998e"
+        }
+    ],
+    "legendAppointmentItems": [
+        {
+            "text": "Travel",
+            "color": "#FFB343"
+        },
+        {
+            "text": "Birthday",
+            "color": "#6395ee"
+        },
+        {
+            "text": "Absence",
+            "color": "#adebb3"
+        }
+    ]
+}

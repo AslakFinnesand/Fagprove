@@ -20,7 +20,7 @@ module.exports = cds.service.impl(async function () {
                 p.ID;
             });
 
-        if (people.length == 0) {
+        if (people.length == 0) { // WHY HAVE THIS CHKE
             return {
                 ID: '0',
                 name: '',
