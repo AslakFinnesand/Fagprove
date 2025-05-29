@@ -52,7 +52,7 @@
                         <Button
                             id="idCreateDeputyButton"
                             icon="sap-icon://add"
-                            press="handleAppointmentCreate"
+                            press=".onButtonCreateAppointmentPress"
                             tooltip="Add"
                         />
                     </toolbarContent>

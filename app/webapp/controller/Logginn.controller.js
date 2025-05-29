@@ -79,7 +79,7 @@ sap.ui.define([
 				}.bind(this))
 				.catch(function (error) {
 					console.error("Feil ved behandling av påloggingsdata:", error);
-					MessageToast.show("Kunne ikke behandle påloggingsdata");
+					MessageToast.show("Loggin-en har ikke en riktig system bruker role");
 				});
 		},
 

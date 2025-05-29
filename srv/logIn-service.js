@@ -5,10 +5,22 @@ module.exports = cds.service.impl(async function () {
     this.on('GetAuthenticated', async (req) => {
         // Extract parameters from req
         const leaderName = req.data.username;
+        const authHeader = req.headers.authorization;
+        const userName = Buffer.from(authHeader.split(' ')[1], 'base64').toString().split(':')[0];
+
+
 
         if (!leaderName) {
             return {
-                ID: '0',
+                ID: '',
+                name: '',
+                IsLeader: false
+            }; // Return empty array if parameters are missing
+        }
+
+        if (userName !== leaderName) {
+            return {
+                ID: '',
                 name: '',
                 IsLeader: false
             }; // Return empty array if parameters are missing
@@ -22,10 +34,9 @@ module.exports = cds.service.impl(async function () {
 
         if (people.length == 0) { // WHY HAVE THIS CHKE
             return {
-                ID: '0',
-                name: '',
+                ID: '',
                 IsLeader: false
-            }
+            };
         }
         // Transform the data to match desired format
         const result = people.map(person => ({

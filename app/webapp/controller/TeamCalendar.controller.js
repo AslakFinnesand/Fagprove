@@ -2,7 +2,6 @@ sap.ui.define([
    "./BaseController",
    "sap/m/library",
    "sap/m/ObjectAttribute",
-   "sap/ui/core/mvc/Controller",
    'sap/m/MessageToast',
    "sap/m/MessageBox",
    'sap/ui/core/format/DateFormat',
@@ -11,10 +10,21 @@ sap.ui.define([
    "sap/ui/core/Fragment",
    "sap/ui/unified/DateTypeRange",
    "sap/ui/model/odata/v4/ODataModel",
-], function (BaseController, mobileLibrary, ObjectAttribute, Controller, MessageToast, MessageBox, DateFormat, UI5Date, JSONModel, Fragment, DateTypeRange, ODataModel,) {
+   'sap/m/Label',
+   'sap/m/Popover',
+   'sap/ui/core/library',
+   'sap/base/Log',
+], function (BaseController, mobileLibrary, ObjectAttribute, MessageToast, MessageBox, DateFormat, UI5Date, JSONModel, Fragment, DateTypeRange, ODataModel, Label, Popover, coreLibrary, Log) {
    "use strict";
 
+   // Hent ValueState for input validering
+   const ValueState = coreLibrary.ValueState;
+
    return BaseController.extend("fagprove.controller.TeamCalendar", {
+      _createAppointmentDialog: null,
+      _appointmentCreateModel: null, // Ny modell for create-dialogen
+
+
       onInit: function () {
          const router = this.getRouter();
          router.getRoute("teamcalendar").attachMatched(this.onRouteMatched, this);
@@ -33,13 +43,36 @@ sap.ui.define([
          const stateModel = new JSONModel({
             isLoading: false,
             currentYear: new Date().getFullYear(),
-            selectedAppointment: null
+            selectedAppointment: null,
+            isCreateDialogSaveEnabled: false // For å styre Lagre-knappen
+
          });
 
          this.getView().setModel(stateModel, "state");
+
+         // Initialiser modellen for create-dialogen
+         this._appointmentCreateModel = new JSONModel({
+            personId: null,
+            deputyId: null,
+            startDate: null,
+            endDate: null
+         });
       },
 
-
+      onExit: function () {
+         if (this._createAppointmentDialog) {
+            this._createAppointmentDialog.destroy();
+            this._createAppointmentDialog = null;
+         }
+         if (this.detailsPopover) {
+            this.detailsPopover.destroy();
+            this.detailsPopover = null;
+         }
+         if (this.legendPopover) {
+            this.legendPopover.destroy();
+            this.legendPopover = null;
+         }
+      },
 
       onRouteMatched: async function () {
          const date = new Date();
@@ -179,6 +212,7 @@ sap.ui.define([
             }
          });
       },
+
 
 
       // On the click of a appointment get the data of the of the appointment
@@ -332,6 +366,146 @@ sap.ui.define([
 
 
 
+      onButtonCreateAppointmentPress: async function () {
+         if (!this._createAppointmentDialog) {
+            try {
+               this._createAppointmentDialog = await Fragment.load({
+                  id: this.getView().getId(), // VIKTIG: Bruk viewets ID
+                  name: "fagprove.view.Create",
+                  controller: this
+               });
+               this.getView().addDependent(this._createAppointmentDialog);
+               this._createAppointmentDialog.setModel(this._appointmentCreateModel, "create");
+               this._createAppointmentDialog.setModel(this.getView().getModel("calendarData"), "calendarData");
+            } catch (error) {
+               Log.error("Kunne ikke laste Create.fragment.xml", error);
+               // Forbedret feilmelding for brukeren
+               let userMessage = "En feil oppstod ved åpning av dialogen for å opprette avtale.";
+               if (error && error.message && error.message.includes("parsererror")) {
+                  userMessage = "Det er en feil i XML-strukturen til Create-dialogen. Vennligst sjekk konsollen for detaljer.";
+                  console.error("XML Parsing Error details:", error.message); // Logg den fulle parserfeilen
+               } else if (error && error.message) {
+                  userMessage += ` Detaljer: ${error.message}`;
+               }
+               MessageBox.error(userMessage);
+               return;
+            }
+         }
+         this._prepareCreateDialog(); // Forbereder modellen og UI-tilstand
+         this._createAppointmentDialog.open();
+      },
+
+      _prepareCreateDialog: function () {
+         this._appointmentCreateModel.setData({
+            personId: null,
+            deputyId: null,
+            startDate: null,
+            endDate: null
+         });
+         // this._appointmentCreateModel.refresh(true);
+
+         // Nå som fragmentet er lastet med viewets ID, skal this.byId() fungere
+         const personSelect = this.byId("idPeopleEmployeeSelect"); // ID fra fragment
+         if (personSelect) personSelect.setValueState(ValueState.None);
+
+         const deputySelect = this.byId("idPeopleDeputySelect"); // ID fra fragment
+         if (deputySelect) deputySelect.setValueState(ValueState.None);
+
+         const startDatePicker = this.byId("idStartDateDateTimePicker"); // ID fra fragment
+         if (startDatePicker) startDatePicker.setValueState(ValueState.None);
+
+         const endDatePicker = this.byId("idEndDateDateTimePicker"); // ID fra fragment
+         if (endDatePicker) endDatePicker.setValueState(ValueState.None);
+
+         this.getView().getModel("state").setProperty("/isCreateDialogSaveEnabled", false);
+      },
+
+
+      onDialogInputChange: function () {
+         this._validateCreateDialogInputs();
+      },
+
+
+      handleDialogSaveButton: async function () {
+         if (!this._validateCreateDialogInputs()) {
+            MessageBox.error("Vennligst korriger feltene med feil.");
+            return;
+         }
+
+         const createData = this._appointmentCreateModel.getData();
+         const startDate = createData.startDate;
+         const endDate = createData.endDate;
+
+         if (!(startDate instanceof Date) || !(endDate instanceof Date)) {
+            MessageBox.error("Ugyldig datoformat. Velg gyldige datoer.");
+            Log.error("startDate or endDate from model is not a valid Date object", { start: startDate, end: endDate });
+            return;
+         }
+
+         const deputyPayload = {
+            person_ID: createData.personId,
+            deputy_ID: createData.deputyId,
+            start: startDate, // Sendes som JS Date, ODataModel serialiserer
+            end: endDate,
+         };
+
+
+         const dataModel = this._createODataModel("/odata/v4/deputy/");
+         if (!dataModel) {
+            MessageBox.error("Kunne ikke koble til datatjenesten. Sjekk konfigurasjon og nettverk.");
+            return;
+         }
+
+         const listBinding = dataModel.bindList("/Deputies");
+         this.getView().setBusy(true);
+         let saveSuccess = false; // Flagg for å styre lukking
+
+         try {
+            await listBinding.create(deputyPayload);
+
+
+            MessageToast.show("Ny stedfortrederavtale lagret!");
+            saveSuccess = true; // Sett flagg for suksess
+
+            const currentYear = this.getView().getModel("state").getProperty("/currentYear");
+            await this.fetchLeaderEmpAppointments(currentYear); // Last inn avtaler på nytt
+
+         } catch (error) {
+            Log.error("Feil ved lagring av stedfortrederavtale:", error);
+            let sErrorMessage = "Kunne ikke lagre stedfortrederavtalen.";
+            if (error.error && error.error.message) {
+               sErrorMessage = `Feil fra server: ${error.error.message}`;
+            } else if (error.message && error.message.includes("rejected")) {
+               sErrorMessage = error.message;
+            } else if (error.message) {
+               sErrorMessage = error.message;
+            } else if (typeof error === 'string') {
+               sErrorMessage = error;
+            } else if (error.responseText) {
+               try {
+                  const errorResponse = JSON.parse(error.responseText);
+                  if (errorResponse.error && errorResponse.error.message) {
+                     sErrorMessage = `Feil fra server: ${errorResponse.error.message}`;
+                  }
+               } catch (e) { /* Ignorer JSON parse feil */ }
+            } else if (error.statusText && error.status) {
+               sErrorMessage = `Feil fra server (${error.status}): ${error.statusText}`;
+            }
+            MessageBox.error(sErrorMessage);
+            saveSuccess = false; // Lagring feilet
+         } finally {
+            this.getView().setBusy(false);
+            if (saveSuccess && this._createAppointmentDialog) { // Lukk kun ved suksess
+               this._createAppointmentDialog.close();
+            }
+         }
+      },
+
+      handleDialogCancelButton: function () {
+         if (this._createAppointmentDialog) {
+            this._createAppointmentDialog.close();
+         }
+      },
 
 
 
@@ -340,14 +514,70 @@ sap.ui.define([
 
 
 
+      _validateCreateDialogInputs: function () {
+         const createData = this._appointmentCreateModel.getData();
+         let bValid = true;
 
+         // Få tak i kontroller for å sette ValueState
+         const personSelect = this.byId("idPeopleEmployeeSelect");
+         const deputySelect = this.byId("idPeopleDeputySelect");
+         const startDatePicker = this.byId("idStartDateDateTimePicker");
+         const endDatePicker = this.byId("idEndDateDateTimePicker");
 
+         // Valider person
+         if (!createData.personId) {
+            if (personSelect) personSelect.setValueState(ValueState.Error).setValueStateText("Vennligst velg en person.");
+            bValid = false;
+         } else {
+            if (personSelect) personSelect.setValueState(ValueState.None);
+         }
 
-      
+         // Valider stedfortreder
+         if (!createData.deputyId) {
+            if (deputySelect) deputySelect.setValueState(ValueState.Error).setValueStateText("Vennligst velg en stedfortreder.");
+            bValid = false;
+         } else {
+            if (deputySelect) deputySelect.setValueState(ValueState.None);
+         }
 
+         // Valider at person og stedfortreder ikke er den samme
+         if (createData.personId && createData.deputyId && createData.personId === createData.deputyId) {
+            if (deputySelect) deputySelect.setValueState(ValueState.Error).setValueStateText("Person og stedfortreder kan ikke være den samme.");
+            bValid = false;
+         } else if (createData.deputyId && deputySelect && deputySelect.getValueState() === ValueState.Error &&
+            deputySelect.getValueStateText() === "Person og stedfortreder kan ikke være den samme.") {
+            deputySelect.setValueState(ValueState.None);
+         }
 
+         // Valider startdato
+         if (!createData.startDate) {
+            if (startDatePicker) startDatePicker.setValueState(ValueState.Error).setValueStateText("Startdato er påkrevd.");
+            bValid = false;
+         } else {
+            if (startDatePicker) startDatePicker.setValueState(ValueState.None);
+         }
 
+         // Valider sluttdato
+         if (!createData.endDate) {
+            if (endDatePicker) endDatePicker.setValueState(ValueState.Error).setValueStateText("Sluttdato er påkrevd.");
+            bValid = false;
+         } else {
+            if (endDatePicker) endDatePicker.setValueState(ValueState.None);
+         }
 
+         // Valider at sluttdato er etter startdato
+         if (createData.startDate && createData.endDate &&
+            UI5Date.getInstance(createData.endDate).getTime() < UI5Date.getInstance(createData.startDate).getTime()) {
+            if (endDatePicker) endDatePicker.setValueState(ValueState.Error).setValueStateText("Sluttdato kan ikke være før startdato.");
+            bValid = false;
+         } else if (createData.endDate && endDatePicker && endDatePicker.getValueState() === ValueState.Error &&
+            endDatePicker.getValueStateText() === "Sluttdato kan ikke være før startdato.") {
+            endDatePicker.setValueState(ValueState.None);
+         }
+
+         this.getView().getModel("state").setProperty("/isCreateDialogSaveEnabled", bValid);
+         return bValid;
+      }
 
 
    });

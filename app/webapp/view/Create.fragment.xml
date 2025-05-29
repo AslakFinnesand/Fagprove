@@ -1,0 +1,66 @@
+<core:FragmentDefinition
+    xmlns:l="sap.ui.layout"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m">
+    <Dialog id="createAppointmentDialog" title="Create New Deputy Appointment">
+        <beginButton>
+            <Button id="idSaveButton" text="Save" type="Emphasized" press=".handleDialogSaveButton" enabled="{state>/isCreateDialogSaveEnabled}"/>
+        </beginButton>
+        <endButton>
+            <Button text="Cancel" press=".handleDialogCancelButton"/>
+        </endButton>
+        <!-- Innholdet i dialogen kommer ETTER knappene -->
+        <content>
+            <l:VerticalLayout
+                class="sapUiContentPadding"
+                width="100%">
+                <Label text="Select person: " labelFor="idPeopleEmployeeSelect" required="true"/>
+                <Select
+                    id="idPeopleEmployeeSelect"
+                    forceSelection="false"
+                    width="100%"
+                    items="{
+                        path: 'calendarData>/people'
+                    }"
+                    selectedKey="{create>/personId}">
+                    <core:Item key="{calendarData>ID}" text="{calendarData>name}"/>
+                </Select>
+
+                <Label text="Select deputy person: " labelFor="idPeopleDeputySelect" required="true"/>
+                <Select
+                    id="idPeopleDeputySelect"
+                    forceSelection="false"
+                    width="100%"
+                    items="{
+                        path: 'calendarData>/people'
+                    }"
+                    selectedKey="{create>/deputyId}">
+                    <core:Item key="{calendarData>ID}" text="{calendarData>name}"/>
+                </Select>
+
+                <Label text="Start date: " labelFor="idStartDateDateTimePicker" required="true"/>
+                <DateTimePicker
+                    id="idStartDateDateTimePicker"
+                    value="{
+                        path: 'create>/startDate',
+                        type: 'sap.ui.model.type.DateTime',
+                        formatOptions: { style: 'short' }
+                    }"
+                    displayFormat="short"
+                    required="true"/>
+
+                <Label text="End date: " labelFor="idEndDateDateTimePicker" required="true"/>
+                <DateTimePicker
+                    id="idEndDateDateTimePicker"
+                    value="{
+                        path: 'create>/endDate',
+                        type: 'sap.ui.model.type.DateTime',
+                        formatOptions: { style: 'short' }
+                    }"
+                    displayFormat="short"
+                    required="true"
+                    change=".onDialogInputChange"/>
+            </l:VerticalLayout>
+        </content>
+    </Dialog>
+</core:FragmentDefinition>
