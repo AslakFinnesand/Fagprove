@@ -461,7 +461,7 @@ sap.ui.define([
 
          try {
 
-            await listBinding.create(deputyPayload).created()
+            await listBinding.create(deputyPayload).created();
 
             MessageToast.show("Ny stedfortrederavtale lagret!");
             saveSuccess = true; // Sett flagg for suksess

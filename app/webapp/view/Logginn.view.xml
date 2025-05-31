@@ -57,7 +57,7 @@
                             id="idLogInButton"
                             ariaLabelledBy="idSignInButtonDescriptionInvisibleText"
                             text="{i18n>logInBtn}"
-                            press=".onLogInButtonPress"
+                            press=".onLoggInnButtonPress"
                             width="100%"
                             class="sapUiSmallMarginTop"
                         />
