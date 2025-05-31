@@ -34,6 +34,7 @@
                         />
                         <Input
                             id="idUserNameInput"
+                            ariaLabelledBy="idEnterYourPasswordDescriptionInvisibleText"
                             required="true"
                             value="{/userName}"
                         />
@@ -45,6 +46,7 @@
                             class="sapUiTinyMarginTop"
                         />
                         <Input
+                            ariaLabelledBy="idEnterYourUsernameDescriptionInvisibleText"
                             id="idPasswordLoginInput"
                             required="true"
                             type="Password"
@@ -52,9 +54,10 @@
                         />
 
                         <Button
-                            id="idLoggInnButton"
+                            id="idLogInButton"
+                            ariaLabelledBy="idSignInButtonDescriptionInvisibleText"
                             text="{i18n>logInBtn}"
-                            press=".onLoggInnButtonPress"
+                            press=".onLogInButtonPress"
                             width="100%"
                             class="sapUiSmallMarginTop"
                         />
@@ -63,4 +66,16 @@
             </FlexBox>
         </content>
     </Page>
+    <core:InvisibleText
+        id="idEnterYourPasswordDescriptionInvisibleText"
+        text="{i18n>loginPasswordAriaDescription}"
+    />
+    <core:InvisibleText
+        id="idEnterYourUsernameDescriptionInvisibleText"
+        text="{i18n>loginUserNameAriaDescription}"
+    />
+    <core:InvisibleText
+        id="idSignInButtonDescriptionInvisibleText"
+        text="{i18n>loginButtonAriaDescription}"
+    />
 </mvc:View>
