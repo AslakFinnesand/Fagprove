@@ -112,21 +112,8 @@ entity _AllAppointmentsView       as
         select from schema.Employees as B {
             B.Person_ID                                    as ID,
             B.Person_ID                                    as person_ID,
-            CAST(
-                substring($now, 1, 4) ||          
-                substring(B.birthday, 5, 6) ||    
-                'T00:00:00.104Z'                  
-                AS DateTime                   
-            )                                              AS start,
-            // Construct end DateTime: CurrentYear + BirthdayMonthAndDay + Time
-            CAST(
-                  substring($now, 1, 4) ||          
-                substring(B.birthday, 5, 6) ||    
-                'T00:00:00.104Z'                  
-                AS DateTime       
-            )                                              AS end,
-            // CAST('2025-01-15T07:30:00.000Z' AS DateTime)   AS start,
-            // CAST('2025-01-15T07:30:00.000Z' AS DateTime)   AS end,
+            CAST( substring($now, 1, 4) || substring(B.birthday, 5, 6) || 'T00:00:00.000Z' AS DateTime) AS start,
+            CAST( substring($now, 1, 4) || substring(B.birthday, 5, 6) || 'T23:59:00.000Z' AS DateTime) AS end,
             cast ('Bursdag' as String )                    as title, // BirthDay har ikke title
             concat('Gratulerer med dagen ', B.Person_Name) as info,
             cast(null as String)                           as type, // BirthDay har ikke type
