@@ -12,11 +12,13 @@
   "devDependencies": {
     "@cap-js/sqlite": "^1",
     "@cap-js/cds-types": "^0.9.0",
-    "@sap/cds-dk": "^8"
+    "@sap/cds-dk": "^8",
+        "cypress": "^13.17.0"
+
   },
   "scripts": {
     "start": "cds-serve",
-    "w": " cds deploy && cds watch --port 4008"
+    "w": " cds deploy && cds watch --port 4008 "
   },
   "cds": {
     "requires": {

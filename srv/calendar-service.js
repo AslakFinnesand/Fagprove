@@ -11,16 +11,12 @@ module.exports = cds.service.impl(async function () {
 
 
         if (!leaderId || isNaN(year)) {
-            req.error(400, 'Invalid leader_ID or year provided.');
-            return;
+            return req.error(400, 'Invalid leader_ID or year provided.');
+            
         }
 
         if (userName !== leaderId) {
-            return {
-                ID: '',
-                name: '',
-                IsLeader: false
-            }; // Return empty array if parameters are missing
+            return req.error(400, 'Mismatching parameters sendt in.')
         }
 
         let peopleUnderLeader = await SELECT.from(PeopleWithAppointments)
@@ -40,14 +36,28 @@ module.exports = cds.service.impl(async function () {
                             app.eventType;
                     });
             });
+        const processedPeople = peopleUnderLeader.map(person => {
+            const filteredAppointments = (person.appointments || [])
+                .filter(app => {
+                    if (!app.start) return false;
+                    return new Date(app.start).getFullYear() === year;
+                })
+                .sort((a, b) => new Date(a.start) - new Date(b.start));
 
+            return {
+                ID: person.ID,
+                name: person.name,
+                role: person.role,
+                appointments: filteredAppointments
+            };
+        });
 
         const legendItemsData = await SELECT.from(LegendItems);
         const legendAppointmentItemsData = await SELECT.from(LegendAppointmentItems);
 
         const result = {
             startDate: new Date().toISOString(),
-            people: peopleUnderLeader,
+            people: processedPeople,
             legendItems: legendItemsData,
             legendAppointmentItems: legendAppointmentItemsData
         };

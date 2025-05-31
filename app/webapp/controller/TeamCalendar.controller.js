@@ -196,8 +196,8 @@ sap.ui.define([
                      }
 
                      // Set the model
-                     const calendarDataModel = new JSONModel(data);
-                     this.getView().setModel(calendarDataModel, "calendarData");
+                     const calendarData = this.getView().getModel("calendarData");
+                     calendarData.setData(data);
 
                      MessageToast.show("Avtaler lastet inn", { offset: "0 -5" });
                      resolve(data);
@@ -455,18 +455,17 @@ sap.ui.define([
             MessageBox.error("Kunne ikke koble til datatjenesten. Sjekk konfigurasjon og nettverk.");
             return;
          }
-
          const listBinding = dataModel.bindList("/Deputies");
          this.getView().setBusy(true);
          let saveSuccess = false; // Flagg for å styre lukking
 
          try {
-            await listBinding.create(deputyPayload);
 
+            await listBinding.create(deputyPayload).created()
 
             MessageToast.show("Ny stedfortrederavtale lagret!");
             saveSuccess = true; // Sett flagg for suksess
-
+            
             const currentYear = this.getView().getModel("state").getProperty("/currentYear");
             await this.fetchLeaderEmpAppointments(currentYear); // Last inn avtaler på nytt
 

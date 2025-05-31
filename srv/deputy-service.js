@@ -34,8 +34,7 @@ module.exports = cds.service.impl(async function () {
 
         if (existingDeputyAssignments.length > 0) {
             const mesageText = `Person ${person_ID} already has a deputy assigned during this period.`;
-            req.reject(409, mesageText);
-            return;
+            return req.error(412, mesageText);
         }
 
     });
