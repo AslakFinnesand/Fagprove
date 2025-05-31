@@ -41,11 +41,11 @@ entity Absence {
 
 
 entity Deputy {
-  key person_ID         : UUID;
-  key deputy_ID         : UUID;
+      person_ID         : UUID;
+      deputy_ID         : UUID;
   key start             : DateTime;
   key end               : DateTime;
-  key decorativeType_ID : UUID;
+      decorativeType_ID : UUID;
 }
 
 
