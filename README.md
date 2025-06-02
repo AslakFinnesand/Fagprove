@@ -20,23 +20,28 @@ This is a application for geting a overview of your employee's to takin better c
 
 ### Install dependencies
 Install all the dependencies in the progject root directory and in the app directory ``app/``
+```bash
+npm i
+```
+
 
 ### Run the CAP service
-To run the app open a terminal in the root folder of the progject and run the comand under this starts the cap service on port `` 4008 `` that the UI5 app are going to use to do API-calls too.
+To run the app open a terminal in the root folder of the progject and run the comand under this starts the cap service on port `` 4008 `` that the UI5 app are going to use to do API-calls too. This command deploys to the database when run and will wipe all data that is not stored in the csv files in the db/data folder.
 ```bash
 npm run w
 ```
 
+To add data to the database permanantly, update the csv files in the db/data folder.
+
 ### To run the UI5 app 
-To run the UI5 app oppen a terminal and navigate to the app  
+Open a terminal and navigate to the app folder  
 ```bash
 cd app/
 ```
-And to run the app and oppen it on the start page 
+and to run the app run this command
 ```bash
 npm run start
 ```
-For maintaining users it is done in the .cdsrc.json file 
 
 <br>
 
