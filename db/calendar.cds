@@ -55,13 +55,14 @@ entity Absences                   as
         a.start as Absence_Start,
         a.end   as Absence_End,
         at.text as Absence_Type,
-        a.info,
-        a.type,
         case
             when a.abcenceType_ID in ('a1b2t3d4-5678-90ab-cdef-1234567890sd','91fb9fb3-3a0d-4163-9f52-09337dcfb60d')
             then '****'
-            else st.text
-        end as Absence_Status, // remove the free text feald when it is a case that can contain sensetive personal information
+            else a.info
+        end as info, // remove the free text feald when it is a case that can contain sensetive personal information        
+        a.type,
+        st.text as Absence_Status,
+
         deco.icon,
         deco.color,
         deco.eventType
